@@ -7,7 +7,9 @@
   --text-main: #f0f3f8;
   --text-muted: #9aa5b8;
   --border-color: #2b3345;
-  --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
+    sans-serif;
 }
 
 * {
@@ -33,6 +35,49 @@ a {
 a:hover {
   color: var(--accent-gold-hover);
   text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -5rem;
+  z-index: 200;
+  background: var(--bg-card);
+  padding: 0.75rem 1rem;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.legal-content a,
+.legal-content code,
+.site-note a,
+footer a {
+  overflow-wrap: anywhere;
+}
+
+.policy-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+}
+
+.site-note {
+  color: var(--text-muted);
+}
+
+[id] {
+  scroll-margin-top: 6rem;
 }
 
 /* Header & Nav */
@@ -79,7 +124,8 @@ nav a {
   font-weight: 500;
 }
 
-nav a:hover, nav a.active {
+nav a:hover,
+nav a.active {
   color: var(--text-main);
   text-decoration: none;
 }
@@ -171,7 +217,7 @@ nav a:hover, nav a.active {
 /* Feature Grid */
 .features {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
   gap: 1.5rem;
   margin: 3rem 0;
 }
@@ -181,7 +227,9 @@ nav a:hover, nav a.active {
   border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 2rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .feature-card:hover {
@@ -245,7 +293,8 @@ nav a:hover, nav a.active {
   color: var(--text-main);
 }
 
-.legal-content p, .legal-content ul {
+.legal-content p,
+.legal-content ul {
   color: #c9d2df;
   margin-bottom: 1rem;
   font-size: 1rem;
@@ -282,11 +331,23 @@ footer {
 
 .footer-links {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
 @media (max-width: 640px) {
-  .hero h1 { font-size: 2rem; }
-  .legal-card { padding: 1.5rem; }
-  .nav-container { flex-direction: column; gap: 0.75rem; }
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .legal-card {
+    padding: 1.5rem;
+  }
+  .nav-container {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  [id] {
+    scroll-margin-top: 11rem;
+  }
 }
